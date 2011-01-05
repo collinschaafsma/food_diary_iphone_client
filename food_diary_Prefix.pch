@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'food_diary' target in the 'food_diary' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
