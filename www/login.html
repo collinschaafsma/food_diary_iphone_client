@@ -15,6 +15,7 @@
     <script type="text/javascript" charset="utf-8" src="javascripts/phonegap.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/core.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/auth.js"></script>
     <script type="text/javascript" charset="utf-8">
 
       // If you want to prevent dragging, uncomment this section
@@ -39,6 +40,22 @@
     </script>
   </head>
   <body onload="onBodyLoad()">
-
+    <form accept-charset="UTF-8" action="http://0.0.0.0:3000/api/login.json?_method=POST" method="post" id="login">
+      <div class='form_errors'></div>
+        <fieldset id='login_form'>
+          <div class='form_row'>
+            <label for="Your_Email:">Your email:</label>
+            <input id="user_email" name="user[email]" type="text" />
+          </div>
+          <div class='form_row'>
+            <label for="Password:">Password:</label>
+            <input id="user_password" name="user[password]" type="password" />
+          </div>
+          <div class='form_row button_row'>
+            <input id="user_session_submit" name="commit" type="submit" value="Sign in" />
+          </div>
+        </fieldset>
+      </form>
   </body>
 </html>
+
