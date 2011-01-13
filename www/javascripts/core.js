@@ -13,6 +13,11 @@
 
       submit: function( ajax_url, ajax_data, callback ){
 
+        var auth_token = '';
+        if( Core.auth.isAuthenticated() ) {
+          auth_token = Core.auth.authToken.get();
+        }
+
         $.ajax({
 
           type: "GET",
@@ -23,8 +28,8 @@
 
           cache: false,
 
-          data: ajax_data,
-          //data: 'auth_token='+ Core.auth.authToken.get() + '&' + ajax_data,
+          //data: ajax_data,
+          data: 'auth_token='+ auth_token + '&' + ajax_data,
 
           success: function(data) {
             if(typeof callback.onSuccess == 'function'){

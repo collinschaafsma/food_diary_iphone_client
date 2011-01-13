@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Change this if you want to allow scaling -->
+    <meta name="viewport" content="width=default-width; user-scalable=no" />
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title>food_diary</title>
+    <!-- iPad/iPhone specific css below, add after your main css >
+    <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />
+    -->
+    <!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+    <script type="text/javascript" charset="utf-8" src="javascripts/phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/core.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/auth.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/upload_photo.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+      var pictureSource;   // picture source
+      var destinationType; // sets the format of returned value
+
+      // If you want to prevent dragging, uncomment this section
+      function preventBehavior(e)
+      {
+          e.preventDefault();
+      };
+
+      document.addEventListener("touchmove", preventBehavior, false);
+
+      function onBodyLoad()
+      {
+        document.addEventListener("deviceready",onDeviceReady,false);
+      }
+
+      /* When this function is called, PhoneGap has been initialized and is ready to roll */
+      function onDeviceReady()
+      {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+      }
+
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+    <div id="content" style="display:none;">
+      <h1>Upload Image</h1>
+      <br />
+      <div id="photo_wrap"></div>
+      <a href="#" id="upload_photo">Choose from existing photos</a>
+      <br />
+      <br />
+      <a href="#" id="upload_camera">Take a new photo</a>
+      <br /><br/>
+      <a href="index.html">Back to Dashboard</a>
+    </div>
+  </body>
+</html>
